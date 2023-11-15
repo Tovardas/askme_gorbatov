@@ -1,0 +1,159 @@
+@font-face {
+    font-family: "Minecraft";
+    src: url("../fonts/Minecraft.otf") format("opentype");
+}
+
+body {
+    font-family: Minecraft !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header {
+    height: 50px;
+    background-color: #eee;
+}
+
+
+.navbar {
+    font-family: Minecraft;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #f8f9fa;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-brand {
+    color: #fd7e14;
+    font-weight: bold;
+}
+
+.nav-link,
+.btn {
+    color: #212529;
+}
+
+.btn-outline-light {
+    color: #fd7e14;
+    border-color: #fd7e14;
+}
+
+.btn-outline-light:hover {
+    background-color: #fd7e14;
+    color: #fff;
+}
+
+.form-control:focus {
+    border-color: #fd7e14;
+    box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+}
+
+.question {
+    border: 1px solid grey;
+    margin-top: 20px !important;
+    padding: 20px
+}
+
+.question:hover {
+    background-color: #e0e1e1;
+}
+
+.question-image {
+    width: 100px;
+    height: 100px;
+}
+
+.question-title {
+    font-size: 20px;
+    font-family: Minecraft;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none !important;
+}
+
+.question-image-primary {
+    width: 150px;
+    height: 150px;
+}
+
+.no-padding {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    display: inline;
+}
+
+.item:hover, .item-active:hover {
+    color: rgb(128, 128, 128);
+
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+}
+
+.item-active {
+    text-decoration: none;
+    color: rgb(128, 128, 128);
+}
+
+:root {
+  --grid-height: 200px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: var(--grid-height);
+  border: 1px solid #bebebe;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.first {
+  width: 49%;
+  height: calc((var(--grid-height) / 2) - 5px);
+  border: 1px solid #bebebe;
+}
+
+.second {
+  width: 49%;
+  height: var(--grid-height);
+  border: 1px solid #bebebe;
+  order: -1;
+}
+
+.third {
+  width: 49%;
+  height: calc((var(--grid-height) / 2) - 5px);
+  border: 1px solid #bebebe;
+}
+
+a{
+    text-underline-offset: 5px;
+}
+
+.custom-radio {
+    background-color: black!important;
+    border-color: black!important;
+}
+
+.custom-page-link {
+  color: black !important;
+}
+
+.page-item.active {
+  background-color: black !important;
+  color: white !important;
+}
+
