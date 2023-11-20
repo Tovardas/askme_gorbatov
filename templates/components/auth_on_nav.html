@@ -1,0 +1,16 @@
+{% load static %}
+
+<div class="d-flex justify-content-end align-self-end align-items-end">
+    <div class="align-self-center p-auto">
+        <img class="avatar" src="{% static '/img/avatar.svg' %} "/>
+    </div>
+    <div class="p-2">
+        <div class="align-self-end">
+            <h5 class="mb-1 text-light fonts" >Dr.Pepper</h5>
+        </div>
+        <div class="align-self-start">
+                <a href="{%  url 'settings' %}" class="link-light">Settings</a>
+                <a href="{%  url 'index' %}" class="link-light px-2">Log out</a>
+        </div>
+    </div>
+</div>

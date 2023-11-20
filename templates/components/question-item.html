@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="question">
+    <div class="row">
+        <div class="col-2 text-center">
+            <img alt="" class="question-image" src="{% static '/img/avatar.svg' %} ">
+        </div>
+        <div class="col-10">
+            <div class="question-title">
+                <a class="link-dark" href="{% url 'question' question_id=question.id %}">{{ question.title }} </a>
+            </div>
+            <div class="question-text">
+                {{ question.content }}
+            </div>
+        </div>
+        <div class="g-4 d-flex">
+            <div class="col-2 text-center px-2">
+                <a>Likes: </a>
+                <button class="btn btn btn-outline-dark" data-bs-toggle="button" type="button">{{ question.get_likes_count }}</button>
+            </div>
+            <div class="col-2 fs-5"><a class="link-dark " href="{% url 'question' question_id=question.id %}">answer ({{ question.get_answers_count }})</a></div>
+            <div class="col-7 fs-5 gap-3 program-lang px-2">
+                Tags:
+                {% for tag in    question.tags.all %}
+              <a class="btn btn-outline-dark mx-1" id="tag-{{forloop.counter}}" href="{% url 'tag' tag_name=tag.name %}">{{tag.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block auth %}
+    {% include 'components/signup_on_nav.html' %}
+{% endblock auth %}
+
+{% block content %}
+
+<h2><a class="item-active" href="{% url 'index' %}">New Questions</a></h2>
+<h2><a  class="item" href="{% url 'hot' %}">Hot Questions</a></h2>
+
+{% for question in questions %}
+
+{% include 'components/question-item.html' %}
+
+{% endfor %}
+
+{% include 'components/paginator.html' with root='index'    %}
+
+{% endblock content %}

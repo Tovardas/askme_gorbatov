@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block auth %}
+    {% include 'components/auth_on_nav.html' %}
+{% endblock auth %}
+
+{% block content %}
+
+<div class="question">
+    <div class="row">
+    <span class="border">
+        <div class="row">
+            <div class="col-3">
+                <img alt="" class="question-image-primary" src="{% static '/img/avatar.svg' %}">
+            </div>
+            <div class="col-9">
+                <div class="question-title"> {{question.title}} </div>
+                <div class="question-text">
+                    {{ question.content}}
+                </div>
+            </div>
+            <div class="g-4 d-flex">
+                <div class="col-3">
+                    <button class="btn btn-dark" data-bs-toggle="button" type="button">{{ question.get_likes_count }}</button>
+                </div>
+                 <div class="col-7 fs-5 program-lang">
+                Tags: {% for tag in question.tags.all %}
+                    <a class="btn btn-outline-dark" id="tag-{{forloop.counter}}" href="{% url 'tag' tag_name=tag.name %}">{{tag.name}}</a>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <hr class="bg-dark border-2 border-top border-dark g-3"/>
+        {% for comment in comments %}
+        {% include 'components/comment-item.html' %}
+        {% endfor %}
+    </span>
+    </div>
+</div>
+
+{% include 'components/paginator.html' with root='question' param=question.id%}
+
+{% endblock %}

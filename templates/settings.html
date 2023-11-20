@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block auth %}
+    {% include 'components/auth_on_nav.html' %}
+{% endblock auth %}
+
+{% block content %}
+
+<div class="col-8 text-center">
+<div class="container d-flex justify-content-center text-center">
+    <div>
+    <div><h2>Your Settings</h2></div>
+    <form action="" class="col-7 mt-sm-3 w-100" method="POST">
+        <div class='mb-3'>
+            <label class='form-label' for='login'>Login</label>
+            <input class='form-control' id='login' type='text' value='krosfar'>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='email'>Settings</label>
+            <input class='form-control' id='email' type='email' value='krosfar003@yandex.ru'>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='nickname'>Nickname</label>
+            <input class='form-control' id='nickname' type='text' value='krosfar'>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='avatar'>Upload avatar</label>
+            <input class='form-control' id='avatar' type='file'>
+        </div>
+        <button class="btn btn-dark btn-block mb-3" type="submit">Save</button>
+    </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

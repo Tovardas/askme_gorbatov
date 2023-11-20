@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+<meta charset="UTF-8">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %} "/>
+    <meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+
+</head>
+
+  <body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-lg">
+            <a class="navbar-brand" href="{% url 'index' %}">Asker.com</a>
+            <div class="collapse navbar-collapse navbar-nav mb-2 mb-lg-0" id="navbarSupportedContent">
+                    <form class="d-flex w-50 pr-2 flex-grow-0">
+                    <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
+                     <a class="btn btn-outline-light" href="{% url 'ask' %}">ASK!</a>
+                    </form>
+                <div class="flex-grow-1 px-5">
+                {% block auth %}{% endblock auth %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0 pt-3 pb-sm-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-3">
+                <div class="row pl-3 justify-content-center text-center">
+                    <h2 class="pt-3">Popular tags</h2>
+                    <div class='text-wrap d-flex gap-2 flex-wrap justify-content-center w-100'>
+                        {% for tag in tags %}
+                        <div class="link-light">
+                          <a class="btn btn-outline-dark" href="{% url 'tag' tag_name=tag.name %}">{{ tag.name }}</a>
+                        </div>
+                        {% endfor %}
+                  </div>
+                    <h2 class="pt-3">Best Members</h2>
+                    <ul class="list-group w-75">
+                        {% for some_user in users %}
+                          <li class="list-group-item list-group-item-action"><a class="link-dark" href="">{{ some_user.user.username }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+</footer>
+
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
